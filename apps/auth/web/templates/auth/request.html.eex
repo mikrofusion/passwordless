@@ -1,0 +1,10 @@
+<%= form_tag @callback_url, method: "post" do %>
+  <div class='control-group'>
+    <label class='control-label' for='email-input'>Enter your email address to sign in or create an account</label>
+    <input class='form-control' type='email' name='email' value='<%= @conn.params["email"] %>' />
+  </div>
+
+  <div class='control-group'>
+    <button class='btn btn-primary'>Sign in</button>
+  </div>
+<% end %>

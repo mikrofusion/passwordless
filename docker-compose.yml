@@ -1,0 +1,21 @@
+version: '2'
+services:
+  db:
+    image: "postgres:9.4"
+    ports:
+    - "65432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes_from:
+      - dbdata
+
+  # for persistance of database data
+  dbdata:
+    image: "postgres:9.4"
+    volumes:
+      - postgres:/var/lib/postgres
+    command: "true"
+
+volumes:
+  postgres:
